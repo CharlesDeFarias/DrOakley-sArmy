@@ -21,13 +21,13 @@ module.exports = function(app, passport, db) {
     });
 // message board routes ===============================================================
   //add .post once form is set up in main.ejs
-    // app.post('/words', (req, res) => {
-    //   db.collection('words').save({word: req.body.word, def: req.body.def, thumbDown:0}, (err, result) => {
-    //     if (err) return console.log(err)
-    //     console.log('saved to database')
-    //     res.redirect('/main')
-    //   })
-    // })
+    app.post('/words', (req, res) => {
+      db.collection('words').save({word: req.body.word, def: req.body.def, thumbDown:0}, (err, result) => {
+        if (err) return console.log(err)
+        console.log('saved to database')
+        res.redirect('/main')
+      })
+    })
   //add .put and update for downvote
     // app.put('/words', (req, res) => {
     //   db.collection('words')
@@ -43,20 +43,20 @@ module.exports = function(app, passport, db) {
     //     res.send(result)
     // })
   //On click of save button
-    app.put('/saved', (req, res) => {
-      console.log("waaazup")
-      db.collection('users').findOneAndUpdate({email: req.user.local.email }, {
-        $push: {
-          savedWords: {
-            "word": req.body.word
-      }, {
-        sort: {_id: -1},
-        upsert: false
-      }, (err, result) => {
-        if (err) return res.send(err)
-        res.send(result)
-      }
-    })
+    // app.put('/saved', (req, res) => {
+    //   console.log("waaazup")
+    //   db.collection('users').findOneAndUpdate({email: req.user.local.email }, {
+    //     $push: {
+    //       savedWords: {
+    //         "word": req.body.word
+    //   }, {
+    //     sort: {_id: -1},
+    //     upsert: false
+    //   }, (err, result) => {
+    //     if (err) return res.send(err)
+    //     res.send(result)
+    //   }
+    // })
 
 // =============================================================================
 // AUTHENTICATE (FIRST LOGIN) ==================================================

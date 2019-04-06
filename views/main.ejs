@@ -36,6 +36,12 @@
         </li>
         <% } %>
       </ul>
+      <h2>Add a word</h2>
+      <form action="/words" method="post">
+          <input type="text" placeholder="What word would you like to submit?" name="word">
+          <input type="text" name="def" placeholder="word definition">
+          <button id="submit">Submit</button>
+      </form>
     </section>
 
     <script src="main.js" charset="utf-8"></script>
