@@ -1,0 +1,13 @@
+body{
+  padding-top:80px;
+  word-wrap:break-word;
+}
+img{
+  height: 200px;
+}
+#signupHidden,#loginHidden{
+  display: none;
+  float: left;
+  width: 48%;
+  margin: 1%;
+}
